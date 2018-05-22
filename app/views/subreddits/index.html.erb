@@ -1,27 +1,18 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+  <div class="w3-panel w3-pale-green">
+    <p><%= notice %></p>
+  </div>
+<% end %>
 
-<h1>Subreddits</h1>
+<div class="w3-panel">
+  <h1>Subreddits</h1>
+  <%= link_to 'New Subreddit', new_subreddit_path, class: "w3-btn w3-blue-gray" %>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<App :subreddits="<%= @subreddits.to_json %>"></App>
 
-  <tbody>
-    <% @subreddits.each do |subreddit| %>
-      <tr>
-        <td><%= subreddit.name %></td>
-        <td><%= link_to 'Show', subreddit %></td>
-        <td><%= link_to 'Edit', edit_subreddit_path(subreddit) %></td>
-        <td><%= link_to 'Destroy', subreddit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Subreddit', new_subreddit_path %>
+<%# <div class="w3-row"> %>
+<%#   <% @subreddits.each do |subreddit| %1> %>
+<%#       <Subreddit :name="<%= subreddit.name.to_json %1>" :id="<%= subreddit.id.to_json %1>"></Subreddit> %>
+<%#   <% end %1> %>
+<%# </div> %>
