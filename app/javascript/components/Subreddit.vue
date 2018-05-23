@@ -7,7 +7,7 @@
         </li>
         <div style="height: 500px; overflow: auto;">
         <li v-for="post in posts">
-          <Post :post="post"></Post>
+          <Item :post="post"></Item>
         </li>
         </div>
       </ul>
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import Post from './Post.vue'
+import Item from './Item.vue'
 
 export default {
   name: 'Subreddit',
@@ -24,7 +24,7 @@ export default {
     return { posts: [] }
   },
   components: {
-    Post
+    Item
   },
   mounted: function() {
     fetch("https://www.reddit.com/r/" + this.name + "/top.json?limit=10")
